@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<title>Main</title>
+</head>
+
+<body>
+
+	<div class="login_nav_bar">
+		<a href="/activities/main">Return to Activities</a> | <a href="/activities/new">Suggest an Activity</a> | <a href="/users/edit">Edit your profile</a> | <a href="/messages"> Messages </a> | <a href="/sessions/logout">Log Out</a> | <%= session[:username] %>
+	</div>
+
+	<div>Filter by...</div><br>
+
+	<div id="main_activity_container">
+
+		<% @activities.each do |activity| %>
+			<div class="main_activity_div">
+				<h4><a href="/activities/show/<%= activity.id %>"><%= activity.name %></a></h4>
+				<%= image_tag(activity.image.url, size:"150x150") %>
+				<p><%= activity.likes.count %> Likes</p>
+			</div>
+		<% end %>
+
+	</div>
+
+
+	
+</body>
+
+</html>

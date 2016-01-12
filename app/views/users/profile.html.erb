@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>User Profile</title>
+</head>
+
+<body>
+
+	<div class="nav_bar_div">
+		<a href="/activities/main">Return to Activities</a> | <a href="/activities/new">Suggest an Activity</a> | <a href="/users/edit">Edit your profile</a> | <a href="/messages"> Messages </a> | <a href="/sessions/logout">Log Out</a> | <%= session[:username] %>
+	</div>
+
+	 <h5><% @user.username %><h5>
+	 	<%= image_tag(@user.image.url, size: "150x150") %>
+	 	<% @photos.each do |obj| %>
+	 		<%= image_tag(obj.image.url, size: "150x150") %>
+ 		<% end %>
+
+ 		<div class="message_div">
+ 			<p>Message <%= @user.username %></p>
+ 			<%= form_for @message, url: {action: "create", controller: "messages"}, html: {class: "message_form"} do |f| %>
+ 				<%= f.text_field :content, :class => "message_text_field" %>
+ 				<%= f.hidden_field :recipient, value: @user.id %>
+ 				<%= f.hidden_field :username, value: session[:username] %>
+ 				<%= f.hidden_field :recusername, value: @user.username %>
+ 				<%= f.submit "Send" %>
+			<% end %>
+ 		</div>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>New Activity</title>
+</head>
+<body>
+
+
+
+
+	<div class="logo" >
+		<img src="/assets/logo3.png">
+	</div>
+	 
+	<div> class="navbar_div">
+
+		<a href="/activities/main">Return to Activities</a> | <a href="/users/edit">Edit your profile</a> | <a href="/messages"> Messages </a> | <a href="/sessions/logout">Log Out</a> | <%= session[:username] %>
+
+	<div>
+		<h3>Suggest an Activity</h3>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+				<%= error %>
+			<% end %>
+		<% end %>
+
+		<% if flash[:success] %>
+				<%= flash[:success] %>
+		<% end %>
+
+		<%= form_for @activity, url: {action: "create"}, html: {multipart: true, class: "create_activity_form"} do |f| %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %><br>
+			<%= f.label :location %>
+			<%= f.text_field :location %><br>
+			<%= f.label :description %>
+			<%= f.text_area :description, size: "40x4"%><br>
+			<%= f.label :image %>
+			<%= f.file_field :image %>
+			<% f.hidden_field(:user_id, :value => session[:user_id]) %>
+			<%= f.submit "Add Activity" %>
+
+		<% end %>
+
+	</div>
+
+	<br>
+
+
+</body>
+</html>

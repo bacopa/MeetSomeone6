@@ -1,0 +1,58 @@
+<html>
+
+<head>
+	<title>Show Outings</title>
+</head>
+
+<body>
+	
+	<div class="nav_bar_div">
+		<a href="/activities/main">Return to Activities</a> | <a href="/activities/new">Suggest an Activity</a> | <a href="/users/edit">Edit your profile</a> | <a href="/messages"> Messages </a> | <a href="/sessions/logout">Log Out</a> | <%= session[:username] %>
+	</div>
+
+	<div class="activity_show_div">
+		<h3><%= @activity.name %></h3>
+		<h4><%= @activity.location %></h4>
+		<h4><%= @activity.description %></h4>
+		<%= image_tag(@activity.image.url, size:"150x150")%>
+	</div>
+	
+	<% if @liked.include?(@activity.id) %>
+		
+		<div class="like_button_div">
+			
+			<a href="/likes/destroy/<%= @activity.id %>">Remove from list</a>
+
+		</div><br>
+
+	<% else %>
+		
+		<div class="like_button_div">
+
+			<a href="/likes/create/<%= @activity.id %>">Like</a>
+
+		</div><br>
+	<% end %>
+
+
+	<% if @activities_created.include?(@activity.id) %>
+
+		<div class="like_button_div">
+
+			<a href="/activities/edit/<%= @activity.id %>">Edit</a>
+
+		</div>
+	<% end %>
+
+
+	<% @default.each do |user| %>
+		
+		<div class="person_snapshot_div">
+			<p><a href="/users/<%= user.id %>"><%= user.username %></a>
+			<%= image_tag(user.image.url, size: "100x100") %>
+		</div>
+	<% end %>
+
+</body>
+
+</html>

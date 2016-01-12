@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Main</title>
+</head>
+<body>
+
+
+
+
+	<div class="login_navbar" >
+		<img src="/assets/logo3.png">
+	</div>
+
+
+	<div>
+		<h3>Log In</h3>
+		<% if flash[:errors] %>
+				<%= flash[:errors] %>
+		<% end %>
+
+		<form action="/sessions" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			email:<input type="text" name="user[email]"><br>
+			password:<input type="password" name="user[password]"><br>
+			<br>
+			<input type="submit" value="Log In">
+		</form>
+	</div>
+
+	<br>
+
+	<div><a href="/users/new"><h1>Join</h1></a></div>
+
+</body>
+</html>

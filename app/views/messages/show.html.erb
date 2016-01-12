@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Show User Messages</title>
+</head>
+
+<body>
+
+	<div class="nav_bar_div">
+		<a href="/activities/main">Activities</a> | <a href="/activities/new">Suggest</a> | <a href="/users/edit">Profile</a> | <a href="/sessions/logout">Log Out</a> | <%= session[:username] %>
+	</div>
+
+
+
+	<p>Messages</p>
+	<% @received.each do |obj| %>
+		<div>
+			<a href="/users/<%= obj.user_id %>"><%= obj.username %>  </a><p><%= obj.content %><p><p><%= obj.created_at %></p>
+
+
+
+
+		</div>
+	<% end %><br><br>
+
+	<p>Sent</p>
+	<% @sent.each do |obj| %>
+		<div>
+			<a href="/users/<%= obj.recipient %>"><%= obj.recusername %>  </a><p><%= obj.content %><p><p><%= obj.created_at %></p>
+		</div>
+	<% end %>
+
+
+</body>
+</html>
