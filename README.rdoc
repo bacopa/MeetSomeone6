@@ -1,28 +1,11 @@
-== README
+MeetSomeone is the first project I completed after finishing a 4 week course in Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+There are many, many features I would someday like to add:
 
-Things you may want to cover:
+-install mailboxer gem
+-a way to allow users to reset their password
+-function for users to search for other users
+-function for users to filter users
+-function for users to block each other
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+And probably more...
