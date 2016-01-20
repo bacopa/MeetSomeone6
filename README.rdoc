@@ -3,9 +3,13 @@ MeetSomeone is the first project I completed after finishing a 4 week course in 
 There are many, many features I would someday like to add:
 
 -install mailboxer gem
+
 -a way to allow users to reset their password
+
 -function for users to search for other users
+
 -function for users to filter users
+
 -function for users to block each other
 
 And probably more...
